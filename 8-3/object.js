@@ -1,0 +1,56 @@
+const objeto1 = {
+  name: "Pedro",
+  number: 44,
+};
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const objeto2 = {
+  name: "Pedro",
+  saludar: function () {
+    return `Hola ${this.name}`;
+  }  
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const objeto3 = {
+  name: "Pedro",
+  saludar: function () {
+    return `Hola ${this.name}`;
+  },
+  saludarFlecha: () => `Hola ${objeto.name}`
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const objeto4 = {
+    objetito: {
+      ["actividades-delictivas"]: "robos",
+      edad: 22,
+    },
+    number: 44,
+};
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const objeto5 = {
+    number: 44,
+    sumarNumberMas20: function () {
+      return this.number + 20;
+    }
+};
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const objeto6 = {
+    number: 44,
+    sumarNumberMas20: function () {
+      return this.number + 20;
+    },
+    sumarNumberMas20MasArgumento: function (param) {
+      return this.sumarNumberMas20() + param;
+    }
+};
