@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
+    <button onclick="playGame()">Empieza el juego otra vez</button>
     <script>
       let opciones = ["PIEDRA", "PAPEL", "TIJERA"];
       let jugador = null;
@@ -19,11 +21,20 @@
 
       //Funcion para que el bot elija una opcion
       function seleccionBot() {
-        return (bot = Math.round(Math.random() * 2));      
+        return (bot = Math.round(Math.random() * 2));
       }
 
+      const swalito = (text, title) =>
+        Swal.fire({
+          title,
+          text,
+          icon: "error",
+          showCancelButton: !false,
+          confirmButtonText: "Cool",
+          cancelButtonText: "Cancel",
+        });
+
       function seleccionJugador() {
-        console.log(bot)
         jugador = parseInt(
           prompt("Ingrese su opción: 0 = PIEDRA | 1 = PAPEL | 2 = TIJERA")
         );
@@ -50,15 +61,9 @@
             console.log(
               `Elegiste ${opciones[jugador]} y el bot eligió ${opciones[bot]} `
             );
-          } else {
-            console.error("No existe la opción elegida");
-          }
-        } else {
-          console.error("Debe ingresar un número entre 0 y 2");
-        }
+          } else swalito("No existe la opción elegida","patito");
+        } else swalito("Debe ingresar un número entre 0 y 2","pipiatita");
       }
-
-      playGame()
     </script>
   </body>
 </html>
